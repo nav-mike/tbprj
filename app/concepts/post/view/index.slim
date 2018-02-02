@@ -1,0 +1,21 @@
+.row.new
+  h1 Posts
+
+  .row
+    = link_to 'Add Post', new_post_path
+
+  table
+    thead
+      tr
+        th Title
+        th Body
+        th
+    tbody
+    - model.each do |item|
+      tr
+        td= item.title
+        td= item.body
+        td
+          = link_to 'Show', item
+          = link_to 'Edit', edit_post_path(item)
+          = button_to 'Destroy', item, method: :delete
